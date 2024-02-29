@@ -158,6 +158,34 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Set Default Payment Method",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/setPaymentMethodToDefault?paymentMethodId=pm_1Op2c6SAs5DsDSgQUNZWnwFi&customerId=cus_PeL1KEeBuBQ3Wz",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"setPaymentMethodToDefault"
+							],
+							"query": [
+								{
+									"key": "paymentMethodId",
+									"value": "pm_1Op2c6SAs5DsDSgQUNZWnwFi"
+								},
+								{
+									"key": "customerId",
+									"value": "cus_PeL1KEeBuBQ3Wz"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
