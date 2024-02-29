@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "f600d64d-94ee-4f10-a694-ca7d7a696bc1",
+		"name": "Stripe-Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32803004"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Add Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Akshay\",\r\n    \"email\" : \"120.ap4@gmail.com\",\r\n    \"countryCode\" : \"+91\",\r\n    \"mobileNo\":\"9512463262\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/createCustomer"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Akshay Patel\",\r\n    \"email\" : \"120.ap4@gmail.com\",\r\n    \"countryCode\" : \"+91\",\r\n    \"mobileNo\":\"9512463262\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/updateCustomer?customerId=cus_Pe3eDwuwjC9KsT",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"updateCustomer"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "cus_Pe3eDwuwjC9KsT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/getAllCustomers"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/deleteCustomer?customerId=cus_PeLB15zoUne1gq",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"deleteCustomer"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "cus_PeLB15zoUne1gq"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment Method",
+			"item": [
+				{
+					"name": "Add Customer Payment Method",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"testing\",\r\n    \"cardNumber\" : \"4242424242424242\",\r\n    \"expiryMonth\" : 11,\r\n    \"expiryYear\" : 2027,\r\n    \"cvv\" : \"457\"\r\n\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/addCustomerPaymentMethod?customerId=cus_PdbXUfHOhwGpRE&testingToken=tok_threeDSecureOptionalProcessingError",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"addCustomerPaymentMethod"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "cus_PdbXUfHOhwGpRE"
+								},
+								{
+									"key": "testingToken",
+									"value": "tok_threeDSecureOptionalProcessingError"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Customer Payment Method",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/getAllPaymentMethod?customerId=cus_PdbXUfHOhwGpRE",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"getAllPaymentMethod"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "cus_PdbXUfHOhwGpRE"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment Intent",
+			"item": [
+				{
+					"name": "Create Payment Intent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/createPaymentIntent?customerId=cus_PdbXUfHOhwGpRE&amount=500",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"createPaymentIntent"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "cus_PdbXUfHOhwGpRE"
+								},
+								{
+									"key": "amount",
+									"value": "500"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Capture Payment Intent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/capturePaymentIntent?paymentIntentId=pi_3OoQLZSAs5DsDSgQ1n0chSIg&amount=800",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"capturePaymentIntent"
+							],
+							"query": [
+								{
+									"key": "paymentIntentId",
+									"value": "pi_3OoQLZSAs5DsDSgQ1n0chSIg"
+								},
+								{
+									"key": "amount",
+									"value": "800"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Payment Intent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/cancelPaymentIntent?paymentIntentId=pi_3OoPs3SAs5DsDSgQ01JO3z5B",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"cancelPaymentIntent"
+							],
+							"query": [
+								{
+									"key": "paymentIntentId",
+									"value": "pi_3OoPs3SAs5DsDSgQ01JO3z5B"
+								},
+								{
+									"key": "amount",
+									"value": "500",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Payment Intent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/updatePaymentIntent?paymentIntentId=pi_3OoQLZSAs5DsDSgQ1n0chSIg&amount=1000",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"updatePaymentIntent"
+							],
+							"query": [
+								{
+									"key": "paymentIntentId",
+									"value": "pi_3OoQLZSAs5DsDSgQ1n0chSIg"
+								},
+								{
+									"key": "amount",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Refund",
+			"item": [
+				{
+					"name": "Create Refund",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/refund?paymentIntentId=pi_3OoidLSAs5DsDSgQ14WwcRqc",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"refund"
+							],
+							"query": [
+								{
+									"key": "paymentIntentId",
+									"value": "pi_3OoidLSAs5DsDSgQ14WwcRqc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Confirm Payment Intent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/confirmPaymentIntent?paymentIntentId=pi_3OoQLZSAs5DsDSgQ1n0chSIg",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"confirmPaymentIntent"
+					],
+					"query": [
+						{
+							"key": "paymentIntentId",
+							"value": "pi_3OoQLZSAs5DsDSgQ1n0chSIg"
+						},
+						{
+							"key": "amount",
+							"value": "800",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
