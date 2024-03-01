@@ -10,4 +10,8 @@ public interface PaymentIntentDetailRepository extends JpaRepository<PaymentInte
 
 	PaymentIntentDetailEntity findByPaymentIntentId(String paymentIntentId);
 	
+	PaymentIntentDetailEntity findByRefundId(String refundId);
+	
+	PaymentIntentDetailEntity findByChargeId(String chargeId);
+	
 }

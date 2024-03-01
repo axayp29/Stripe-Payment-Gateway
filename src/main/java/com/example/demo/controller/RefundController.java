@@ -16,10 +16,24 @@ public class RefundController {
 	StripeService stripeService;
 	
 	@GetMapping("/refund")
-	public PaymentIntentDetailEntity setPaymentMethodToDefault(
+	public PaymentIntentDetailEntity createRefund(
 			@RequestParam("paymentIntentId") String paymentIntentId) throws StripeException {
 
 		return stripeService.createRefund(paymentIntentId);
+	}
+	
+	@GetMapping("/updateRefund")
+	public PaymentIntentDetailEntity updateRefund(
+			@RequestParam("refundId") String refundId,@RequestParam("amount") long amount) throws StripeException {
+
+		return stripeService.updateRefund(refundId,amount);
+	}
+	
+	@GetMapping("/cancelRefund")
+	public PaymentIntentDetailEntity cancelRefund(
+			@RequestParam("refundId") String refundId) throws StripeException {
+
+		return stripeService.cancelRefund(refundId);
 	}
 
 }

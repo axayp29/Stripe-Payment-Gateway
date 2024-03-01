@@ -27,4 +27,10 @@ public class PaymentIntentDetailEntity {
 	private LocalDateTime createdAt;
 	
 	private String status;
+	
+	private String refundId;
+	
+	private long refundedAmount;
+	
+	private String chargeId;
 }

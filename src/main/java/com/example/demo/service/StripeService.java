@@ -7,10 +7,11 @@ import com.example.demo.entity.PaymentDetails;
 import com.example.demo.entity.PaymentIntentDetailEntity;
 import com.example.demo.pojo.request.AddCustomerRequest;
 import com.example.demo.pojo.request.CardDto;
+import com.example.demo.pojo.request.ChargeRequest;
 import com.example.demo.pojo.request.CreateCardRequest;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Customer;
-import com.stripe.model.CustomerCollection;
+import com.stripe.model.PaymentIntent;
 
 public interface StripeService {
 
@@ -41,4 +42,14 @@ public interface StripeService {
 	// PaymentIntentDetailEntity confirmPaymentIntent(String paymentIntentId) throws StripeException;
 	
 	PaymentIntentDetailEntity createRefund(String paymentIntentId) throws StripeException ;
+	
+	PaymentIntentDetailEntity updateRefund(String refundId,long amount) throws StripeException ;
+	
+	PaymentIntentDetailEntity cancelRefund(String refundId) throws StripeException;
+	
+	String createInvoice(String customerId) throws StripeException;
+	
+	PaymentIntent processPaymentUsingWeb(ChargeRequest chargeRequest,String amount) throws StripeException, NumberFormatException;
+	
+	// PayoutEntity createPayOut(long payOut) throws StripeException ;
 }

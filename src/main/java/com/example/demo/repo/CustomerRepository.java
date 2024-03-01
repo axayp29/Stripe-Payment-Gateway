@@ -9,6 +9,8 @@ import com.example.demo.entity.CustomerEntity;
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 	
 	CustomerEntity findByStripeCustomerId(String customerId);
+	
+	CustomerEntity findByEmail(String email);
 
 
 }
